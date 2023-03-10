@@ -54,10 +54,8 @@ class HomePage extends StatelessWidget {
                   Card(
                     child: InkWell(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const AddPage()));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => AddPage()));
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(20),

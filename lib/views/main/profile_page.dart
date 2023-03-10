@@ -20,15 +20,15 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          minimum: EdgeInsets.symmetric(horizontal: 20),
+          minimum: const EdgeInsets.symmetric(horizontal: 20),
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 20),
+            padding: const EdgeInsets.symmetric(vertical: 20),
             child: Column(
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "YOUR ACCOUNT",
                       style: TextStyle(
                           letterSpacing: 2,
@@ -41,24 +41,24 @@ class _ProfilePageState extends State<ProfilePage> {
                       }),
                       child: Text(
                         isEditable ? "Save" : "Edit",
-                        style: TextStyle(fontSize: 16, letterSpacing: 2),
+                        style: const TextStyle(fontSize: 16, letterSpacing: 2),
                       ),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Form(
                     child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                    Text(
+                    const Text(
                       "Name",
                       style:
                           TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     TextFormField(
@@ -66,18 +66,18 @@ class _ProfilePageState extends State<ProfilePage> {
                       decoration: InputDecoration(
                           isDense: true,
                           border: isEditable
-                              ? OutlineInputBorder()
+                              ? const OutlineInputBorder()
                               : InputBorder.none),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    Text(
+                    const Text(
                       "Email",
                       style:
                           TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     TextFormField(
@@ -85,18 +85,18 @@ class _ProfilePageState extends State<ProfilePage> {
                       decoration: InputDecoration(
                           isDense: true,
                           border: isEditable
-                              ? OutlineInputBorder()
+                              ? const OutlineInputBorder()
                               : InputBorder.none),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    Text(
+                    const Text(
                       "Password",
                       style:
                           TextStyle(fontWeight: FontWeight.w400, fontSize: 15),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     TextFormField(
@@ -104,7 +104,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       decoration: InputDecoration(
                           isDense: true,
                           border: isEditable
-                              ? OutlineInputBorder()
+                              ? const OutlineInputBorder()
                               : InputBorder.none),
                     )
                   ],

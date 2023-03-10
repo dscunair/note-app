@@ -1,17 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:note_app/model/note.dart';
 
-class AddPage extends StatelessWidget {
-  const AddPage({super.key});
+class AddPage extends StatefulWidget {
+  const AddPage({super.key, this.note});
+
+  final Note? note;
+
+  @override
+  State<AddPage> createState() => _AddPageState();
+}
+
+class _AddPageState extends State<AddPage> {
+  final TextEditingController _titleController = TextEditingController();
+
+  final TextEditingController _contentController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.note != null) {
+      _titleController.text = widget.note!.title;
+      _contentController.text = widget.note!.content;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          minimum: EdgeInsets.symmetric(horizontal: 20),
+          minimum: const EdgeInsets.symmetric(horizontal: 20),
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 20),
+            padding: const EdgeInsets.symmetric(vertical: 20),
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
@@ -21,7 +41,7 @@ class AddPage extends StatelessWidget {
                       onTap: () {
                         //Delete note here
                       },
-                      child: Icon(
+                      child: const Icon(
                         Icons.delete,
                         color: Colors.red,
                       ),
@@ -34,10 +54,13 @@ class AddPage extends StatelessWidget {
                       child: Column(
                         children: <Widget>[
                           TextFormField(
-                            decoration: InputDecoration(hintText: "Note Title"),
+                            controller: _titleController,
+                            decoration:
+                                const InputDecoration(hintText: "Note Title"),
                           ),
                           TextFormField(
-                            decoration: InputDecoration(
+                            controller: _contentController,
+                            decoration: const InputDecoration(
                                 border: InputBorder.none,
                                 hintText: "Write here"),
                             maxLines: null,

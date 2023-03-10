@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/model/note.dart';
+import 'package:note_app/views/main/add_page.dart';
 
 class NoteCard extends StatelessWidget {
-  NoteCard({super.key, required this.note});
+  const NoteCard({super.key, required this.note});
 
   final Note note;
 
@@ -11,7 +12,12 @@ class NoteCard extends StatelessWidget {
     return Card(
       child: InkWell(
         onTap: () {
-          //Write callback here
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => AddPage(
+                        note: note,
+                      )));
         },
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -20,17 +26,17 @@ class NoteCard extends StatelessWidget {
             children: <Widget>[
               Text(
                 note.title.toUpperCase(),
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 15,
                     letterSpacing: 2,
                     fontWeight: FontWeight.w600),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
                 note.content,
-                style: TextStyle(letterSpacing: 1),
+                style: const TextStyle(letterSpacing: 1),
               )
             ],
           ),
